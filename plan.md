@@ -1,0 +1,23 @@
+# Neo Brutalism 캘린더 앱 개발 계획 (plan.md)
+
+- [x] **Step 1: 환경 설정 및 기본 구조 생성**
+  - [x] Vite + React + TailwindCSS + Framer Motion 프로젝트 설정
+  - [x] Neo Brutalism 디자인 시스템 토큰 정의 (컬러 팔레트, 테두리, 그림자, 라디우스, 폰트)
+- [x] **Step 2: 기본 UI 컴포넌트 개발 (Bento & Interlocking Card)**
+  - [x] 퍼즐 형태의 이음새가 있는 Interlocking Card 컴포넌트
+  - [x] 상단 프로필 및 알림 HeaderCard
+  - [x] 타이포그래피 스타일링 (17:41, 00:14:98 대형 숫자 표현)
+- [x] **Step 3: 일정 카드 & 드래그 앤 드롭 구현**
+  - [x] 이모지, 제목, 시간, 카테고리, 완료여부가 포함된 일정 카드
+  - [x] 롱 프레스 시 카드 확대(scale), 그림자 증가, 드래그 앤 드롭 이동 애니메이션
+- [x] **Step 4: 캘린더 컴포넌트 구현**
+  - [x] 둥근 카드 내부 월간 캘린더 UI
+  - [x] 오늘 날짜 Lime 색상, 선택 날짜 Pink 색상, 일정 있는 날짜 점 표시
+- [x] **Step 5: 초간단 일정 추가 UI (<= 3 Tap UX)**
+  - [x] 스크롤 축소 애니메이션 Floating Add Button
+  - [x] 빠른 일정 생성 Bottom Sheet / Modal (이모지 Preset, 카테고리, 시간)
+- [x] **Step 6: 타이머 / 대형 카운트다운 컴포넌트 구현**
+  - [x] 레퍼런스 이미지의 Timer / Average Pace (`17:41`, `00:14:98`) 인터랙티브 카드
+- [x] **Step 7: 통합 검증 및 시각적 폴리싱**
+  - [x] `npm run build` 및 `npm run dev` 실행 검증
+  - [x] 60FPS 애니메이션 및 로컬 스토리지 데이터 저장 동작 확인

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-lime: #D7FF2F;
+  --color-sky: #74C8FF;
+  --color-mint: #C8FFF0;
+  --color-pink: #FFD5EB;
+  --color-navy: #162235;
+  --color-white: #FFFFFF;
+  --color-border: #1E1E1E;
+  --color-bg: #F6F6F4;
+  
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-navy);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Neo Brutalism utility classes */
+.neo-card {
+  border: 2.5px solid var(--color-border);
+  border-radius: 32px;
+  box-shadow: 4px 4px 0px var(--color-border);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.neo-card-flat {
+  border: 2.5px solid var(--color-border);
+  border-radius: 32px;
+}
+
+.neo-shadow {
+  box-shadow: 4px 4px 0px var(--color-border);
+}
+
+.neo-shadow-lg {
+  box-shadow: 6px 6px 0px var(--color-border);
+}
+
+.neo-shadow-sm {
+  box-shadow: 2px 2px 0px var(--color-border);
+}
+
+.neo-btn {
+  border: 2.5px solid var(--color-border);
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px var(--color-border);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px var(--color-border);
+}
+
+.neo-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0px var(--color-border);
+}
+
+/* Typography helper classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  letter-spacing: -0.04em;
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keyframes for pulse and subtle animations */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float {
+  animation: floatBob 3s ease-in-out infinite;
+}
+
+/* Puzzle interlocking notch SVGs connector styling */
+.puzzle-connector-top {
+  position: relative;
+}
+.puzzle-connector-top::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 14px;
+  background-color: inherit;
+  border-top: 2.5px solid var(--color-border);
+  border-left: 2.5px solid var(--color-border);
+  border-right: 2.5px solid var(--color-border);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: 10;
+}
+
+/* Force iOS Safari native date/time pickers to respect container widths without overlapping */
+input[type="date"],
+input[type="time"] {
+  min-width: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: transparent;
+}
+
+/* Position indicator absolutely to prevent layout expansion */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  position: absolute !important;
+  right: 8px !important;
+  opacity: 0.5 !important;
+  width: 16px !important;
+  height: 16px !important;
+  pointer-events: none !important;
+}

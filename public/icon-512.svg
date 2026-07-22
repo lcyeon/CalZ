@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="110" fill="#D7FF2F" stroke="#162235" stroke-width="24"/>
+  <rect x="40" y="40" width="432" height="432" rx="80" fill="none" stroke="#162235" stroke-width="12"/>
+  
+  <!-- Tactile Shadow Box -->
+  <rect x="96" y="116" width="320" height="320" rx="40" fill="#162235"/>
+  <rect x="80" y="100" width="320" height="320" rx="40" fill="#74C8FF" stroke="#162235" stroke-width="16"/>
+  
+  <!-- CalZ Logo Text & Emoji Symbol -->
+  <text x="240" y="270" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="120" fill="#162235" letter-spacing="-4">CalZ</text>
+  
+  <!-- Running Zap Badge -->
+  <circle cx="340" cy="140" r="45" fill="#FFD5EB" stroke="#162235" stroke-width="12"/>
+  <text x="340" y="156" text-anchor="middle" font-size="44">⚡</text>
+</svg>
