@@ -384,20 +384,7 @@ export default function QuickTimerCard({
           )}
         </AnimatePresence>
 
-        {!currentUser ? (
-          <div className="py-6 text-center space-y-2">
-            <p className={`text-xs font-black ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-              로그인 후 매일 러닝 일지를 작성하고 누적 기록을 관리해 보세요!
-            </p>
-            <button
-              type="button"
-              onClick={onOpenAuthModal}
-              className="px-4 py-1.5 bg-[#D7FF2F] text-black rounded-xl text-xs font-black border border-black shadow-[1.5px_1.5px_0px_#000]"
-            >
-              🔑 로그인하러 가기
-            </button>
-          </div>
-        ) : activeLogs.length === 0 ? (
+        {activeLogs.length === 0 ? (
           <div className="py-6 text-center text-xs font-bold text-slate-400 space-y-1">
             <p>아직 저장된 러닝 기록이 없습니다.</p>
             <p>우측 상단의 '+ 러닝 기록하기' 버튼을 눌러 기록해보세요!</p>
