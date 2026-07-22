@@ -100,6 +100,24 @@ export default function AuthModal({
             </button>
           </div>
 
+          {/* Guest Mode Notice */}
+          <div className="p-3 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-black flex flex-col gap-1.5 border border-amber-500/20">
+            <span className="flex items-center gap-1.5 text-amber-800 dark:text-amber-400">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>24시간 로컬 게스트 모드 구동 중</span>
+            </span>
+            <p className="font-medium text-[10px] leading-relaxed text-slate-700 dark:text-slate-300">
+              현재 데이터베이스 서버가 개설되지 않았습니다. **회원가입/로그인 없이도** 메인 화면에서 일정을 자유롭게 추가하고 러닝을 기록할 수 있으며, 모든 데이터는 이 기기(아이폰) 내에 자동으로 안전하게 저장됩니다!
+            </p>
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-1 py-1.5 bg-amber-600 text-white font-black rounded-xl text-[10px] text-center hover:bg-amber-700 transition-colors"
+            >
+              로그인 없이 그냥 사용하기 (데이터 자동 저장됨)
+            </button>
+          </div>
+
           {/* Error Banner */}
           {errorMsg && (
             <div className="p-3 rounded-2xl bg-rose-500 text-white text-xs font-extrabold flex items-center gap-2 border-2 border-black">
