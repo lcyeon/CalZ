@@ -248,45 +248,19 @@ export default function MonthlyCalendarCard({
                 </h3>
               </div>
 
-              {currentUser ? (
-                onOpenAddModal && (
-                  <button
-                    type="button"
-                    onClick={onOpenAddModal}
-                    className="neo-btn px-2.5 py-1.5 bg-[#D7FF2F] text-black text-xs font-black flex items-center gap-1 shadow-[2px_2px_0px_#000] shrink-0"
-                  >
-                    <Plus className="w-4 h-4 stroke-[3]" />
-                    <span>일정 추가</span>
-                  </button>
-                )
-              ) : (
-                onOpenAuthModal && (
-                  <button
-                    type="button"
-                    onClick={onOpenAuthModal}
-                    className="neo-btn px-2.5 py-1.5 bg-rose-500 text-white text-xs font-black flex items-center gap-1 shadow-[2px_2px_0px_#000] shrink-0 border border-black"
-                  >
-                    <LogIn className="w-3.5 h-3.5" />
-                    <span>로그인 필요</span>
-                  </button>
-                )
+              {onOpenAddModal && (
+                <button
+                  type="button"
+                  onClick={onOpenAddModal}
+                  className="neo-btn px-2.5 py-1.5 bg-[#D7FF2F] text-black text-xs font-black flex items-center gap-1 shadow-[2px_2px_0px_#000] shrink-0"
+                >
+                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <span>일정 추가</span>
+                </button>
               )}
             </div>
 
-            {!currentUser ? (
-              <div className="py-4 text-center space-y-2">
-                <p className={`text-xs font-black ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                  로그인 후 선택한 날짜의 일정을 등록하고 관리해 보세요!
-                </p>
-                <button
-                  type="button"
-                  onClick={onOpenAuthModal}
-                  className="px-4 py-1.5 bg-[#D7FF2F] text-black rounded-xl text-xs font-black border border-black shadow-[1.5px_1.5px_0px_#000]"
-                >
-                  🔑 로그인하기
-                </button>
-              </div>
-            ) : selectedDayEvents.length === 0 ? (
+            {selectedDayEvents.length === 0 ? (
               <div className="py-4 text-center space-y-1">
                 <p className={`text-xs font-black ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                   등록된 일정이 없습니다.
