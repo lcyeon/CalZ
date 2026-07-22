@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 const DB_FILE = path.join(process.cwd(), 'server_db.json');
 
 // Initialize Database JSON file if it doesn't exist
