@@ -18,8 +18,8 @@ export default function MonthlyCalendarCard({
   const [currentMonthDate, setCurrentMonthDate] = useState(new Date(2026, 6, 1)); // Default July 2026
   const [dragOverDate, setDragOverDate] = useState(null);
 
-  // If not logged in, events are empty
-  const activeEvents = currentUser ? events : [];
+  // Active events (enabled for guest local mode)
+  const activeEvents = events;
 
   const year = currentMonthDate.getFullYear();
   const month = currentMonthDate.getMonth();
@@ -86,7 +86,7 @@ export default function MonthlyCalendarCard({
     e.preventDefault();
     setDragOverDate(null);
     const eventId = e.dataTransfer.getData('text/plain');
-    if (eventId && onEventMoveDate && currentUser) {
+    if (eventId && onEventMoveDate) {
       onEventMoveDate(eventId, dateStr);
     }
   };

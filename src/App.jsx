@@ -377,23 +377,11 @@ export default function App() {
               <section className="space-y-2">
                 <div className="flex items-center justify-between px-1">
                   <h2 className={`text-base font-black font-display flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-[#162235]'}`}>
-                    일정 목록 ({currentUser ? filteredEvents.length : 0})
+                    일정 목록 ({filteredEvents.length})
                   </h2>
                 </div>
 
-                {!currentUser ? (
-                  <div className={`p-8 neo-card text-center space-y-3 border-2 border-black shadow-[3px_3px_0px_#000] ${
-                    isDarkMode ? 'bg-[#0F172A] text-white' : 'bg-white text-[#162235]'
-                  }`} style={{ borderRadius: '28px' }}>
-                    <p className="font-black text-sm sm:text-base">로그인 후 나만의 일정을 추가하고 관리해 보세요!</p>
-                    <button
-                      onClick={() => setIsAuthModalOpen(true)}
-                      className="neo-btn px-5 py-2.5 bg-[#D7FF2F] text-black text-xs sm:text-sm font-black border-2 border-black shadow-[2px_2px_0px_#000]"
-                    >
-                      🔑 로그인하러 가기
-                    </button>
-                  </div>
-                ) : filteredEvents.length === 0 ? (
+                {filteredEvents.length === 0 ? (
                   <div className={`p-8 neo-card text-center space-y-2 ${isDarkMode ? 'bg-[#0F172A] border-black text-white' : 'bg-white border-black'}`}>
                     <p className="font-extrabold text-sm">등록된 일정이 없습니다.</p>
                     <button

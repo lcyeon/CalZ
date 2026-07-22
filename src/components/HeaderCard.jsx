@@ -73,87 +73,79 @@ export default function HeaderCard({
                 <span>로그인</span>
               </motion.button>
             ) : (
-              <>
-                {/* Logout Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={onLogout}
-                  className="w-8 h-8 rounded-full border-2 border-black bg-white text-black hover:bg-slate-100 shadow-[1.5px_1.5px_0px_#000] flex items-center justify-center"
-                  title="로그아웃"
-                >
-                  <LogOut className="w-3.5 h-3.5 text-rose-500 stroke-[2.5]" />
-                </motion.button>
-
-                {/* Notification Bell Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setShowNotifications(!showNotifications)}
-                  className={`relative w-8 h-8 rounded-full border-2 border-black shadow-[1.5px_1.5px_0px_#000] transition-colors flex items-center justify-center ${
-                    isDarkMode ? 'bg-[#162235] text-[#D7FF2F]' : 'bg-white text-black hover:bg-slate-50'
-                  }`}
-                  aria-label="알림"
-                >
-                  <Bell className="w-4 h-4 stroke-[2.5]" />
-                  {unreadCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#FFD5EB] text-black font-black text-[9px] rounded-full border border-black flex items-center justify-center">
-                      {unreadCount}
-                    </span>
-                  )}
-                </motion.button>
-
-                {/* Profile Avatar */}
-                <motion.div 
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.92 }}
-                  onClick={onOpenProfileSettings} 
-                  className="relative cursor-pointer shrink-0"
-                  title="프로필 & 개인 설정 변경"
-                >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black bg-[#74C8FF] overflow-hidden shadow-[1.5px_1.5px_0px_#000] flex items-center justify-center font-black text-lg text-black">
-                    {userAvatar && (userAvatar.startsWith('http') || userAvatar.startsWith('data:image')) ? (
-                      <img 
-                        src={userAvatar} 
-                        alt="Profile" 
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <span>{userAvatar || '🏃‍♀️'}</span>
-                    )}
-                  </div>
-                </motion.div>
-              </>
+              /* Logout Button */
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onLogout}
+                className="w-8 h-8 rounded-full border-2 border-black bg-white text-black hover:bg-slate-100 shadow-[1.5px_1.5px_0px_#000] flex items-center justify-center"
+                title="로그아웃"
+              >
+                <LogOut className="w-3.5 h-3.5 text-rose-500 stroke-[2.5]" />
+              </motion.button>
             )}
+
+            {/* Notification Bell Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowNotifications(!showNotifications)}
+              className={`relative w-8 h-8 rounded-full border-2 border-black shadow-[1.5px_1.5px_0px_#000] transition-colors flex items-center justify-center ${
+                isDarkMode ? 'bg-[#162235] text-[#D7FF2F]' : 'bg-white text-black hover:bg-slate-50'
+              }`}
+              aria-label="알림"
+            >
+              <Bell className="w-4 h-4 stroke-[2.5]" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#FFD5EB] text-black font-black text-[9px] rounded-full border border-black flex items-center justify-center">
+                  {unreadCount}
+                </span>
+              )}
+            </motion.button>
+
+            {/* Profile Avatar */}
+            <motion.div 
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              onClick={onOpenProfileSettings} 
+              className="relative cursor-pointer shrink-0"
+              title="프로필 & 개인 설정 변경"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-black bg-[#74C8FF] overflow-hidden shadow-[1.5px_1.5px_0px_#000] flex items-center justify-center font-black text-lg text-black">
+                {userAvatar && (userAvatar.startsWith('http') || userAvatar.startsWith('data:image')) ? (
+                  <img 
+                    src={userAvatar} 
+                    alt="Profile" 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span>{userAvatar || '🏃‍♀️'}</span>
+                )}
+              </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Main Heading Row (Full Width - Never Truncated!) */}
         <div className="pt-0.5">
-          {currentUser ? (
-            <div className="flex items-baseline justify-between gap-2 flex-wrap">
-              <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#162235] font-display">
-                안녕하세요, {userName}님
-              </h1>
-              <span className="text-xs font-bold text-slate-800">
-                오늘 일정{' '}
-                <span className={`px-2 py-0.5 rounded-md border border-black font-black text-xs ${
-                  isDarkMode ? 'bg-[#162235] text-[#D7FF2F]' : 'bg-white text-black'
-                }`}>
-                  {todayCount}개
+          <div className="flex items-baseline justify-between gap-2 flex-wrap">
+            <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#162235] font-display flex items-center gap-1.5 flex-wrap">
+              <span>안녕하세요, {userName}님</span>
+              {currentUser && (
+                <span className="inline-block text-[9px] font-black bg-black/10 text-black px-1.5 py-0.5 rounded-md border border-black/10">
+                  데이터 동기화됨 ✓
                 </span>
+              )}
+            </h1>
+            <span className="text-xs font-bold text-slate-800">
+              오늘 일정{' '}
+              <span className={`px-2 py-0.5 rounded-md border border-black font-black text-xs ${
+                isDarkMode ? 'bg-[#162235] text-[#D7FF2F]' : 'bg-white text-black'
+              }`}>
+                {todayCount}개
               </span>
-            </div>
-          ) : (
-            <div>
-              <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#162235] font-display">
-                로그인을 해주세요
-              </h1>
-              <p className="text-xs font-bold text-slate-800">
-                일정을 동기화하고 관리하려면 로그인해 주세요.
-              </p>
-            </div>
-          )}
+            </span>
+          </div>
         </div>
       </div>
 

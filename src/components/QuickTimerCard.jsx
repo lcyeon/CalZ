@@ -48,7 +48,7 @@ export default function QuickTimerCard({
   const [formMemo, setFormMemo] = useState('');
 
   // Active logs based on login state
-  const activeLogs = currentUser ? logs : [];
+  const activeLogs = logs;
 
   // Live Timer Interval
   useEffect(() => {
@@ -91,10 +91,6 @@ export default function QuickTimerCard({
 
   // Open Log Form prefilled with timer values if timer was running
   const handleOpenLogForm = () => {
-    if (!currentUser) {
-      onOpenAuthModal && onOpenAuthModal();
-      return;
-    }
     if (seconds > 0) {
       const timerMins = Math.max(1, Math.round(seconds / 60));
       setFormDuration(timerMins);
@@ -208,7 +204,7 @@ export default function QuickTimerCard({
             <span className="text-xs font-black">나의 누적 러닝 기록</span>
           </div>
           <span className="text-[10px] font-black bg-black text-[#D7FF2F] px-2 py-0.5 rounded-full">
-            {currentUser ? `총 ${activeLogs.length}회 완료` : '로그인 필요'}
+            총 {activeLogs.length}회 완료
           </span>
         </div>
 
