@@ -62,28 +62,7 @@ export default function HeaderCard({
 
           {/* Right Action Icons */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {!currentUser ? (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onOpenAuthModal}
-                className="px-3.5 py-1.5 rounded-xl border-2 border-black bg-white text-black hover:bg-slate-100 shadow-[2px_2px_0px_#000] text-xs font-black flex items-center gap-1"
-              >
-                <LogIn className="w-3.5 h-3.5 stroke-[2.5]" />
-                <span>로그인</span>
-              </motion.button>
-            ) : (
-              /* Logout Button */
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onLogout}
-                className="w-8 h-8 rounded-full border-2 border-black bg-white text-black hover:bg-slate-100 shadow-[1.5px_1.5px_0px_#000] flex items-center justify-center"
-                title="로그아웃"
-              >
-                <LogOut className="w-3.5 h-3.5 text-rose-500 stroke-[2.5]" />
-              </motion.button>
-            )}
+
 
             {/* Notification Bell Button */}
             <motion.button
